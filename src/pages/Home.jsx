@@ -1,18 +1,19 @@
-import { useEffect, useState } from "react";
+import { Suspense, lazy, useEffect, useState } from "react";
 
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import SummaryCards from "../components/SummaryCards";
 import About from "../components/About";
 import Organization from "../components/Organization";
-import Statistics from "../components/Statistics";
-import Potensi from "../components/Potensi";
-import Activities from "../components/Activities";
-import Gallery from "../components/Gallery";
 import Location from "../components/Location";
 import Footer from "../components/Footer";
 import CustomCursor from "../components/CustomCursor";
-import PageOverlay from "../components/PageOverlay";
+
+const Statistics = lazy(() => import("../components/Statistics"));
+const Potensi = lazy(() => import("../components/Potensi"));
+const Activities = lazy(() => import("../components/Activities"));
+const Gallery = lazy(() => import("../components/Gallery"));
+const PageOverlay = lazy(() => import("../components/PageOverlay"));
 
 function Home() {
   const [activePage, setActivePage] = useState(null);
@@ -47,18 +48,26 @@ function Home() {
         <Organization />
 
         {/* STATISTIK */}
-        <Statistics />
+        <Suspense fallback={<div className="section-loading" />}>
+          <Statistics />
+        </Suspense>
 
         {/* POTENSI */}
-        <Potensi />
+        <Suspense fallback={<div className="section-loading" />}>
+          <Potensi />
+        </Suspense>
 
         {/* KEGIATAN */}
         <section id="kegiatan">
-          <Activities />
+          <Suspense fallback={<div className="section-loading" />}>
+            <Activities />
+          </Suspense>
         </section>
 
         {/* GALERI */}
-        <Gallery />
+        <Suspense fallback={<div className="section-loading" />}>
+          <Gallery />
+        </Suspense>
 
         {/* KONTAK */}
         <section id="kontak">
@@ -69,11 +78,13 @@ function Home() {
       <Footer onNavigate={setActivePage} />
 
       {activePage && (
-        <PageOverlay
-          page={activePage}
-          onClose={() => setActivePage(null)}
-          onNavigate={setActivePage}
-        />
+        <Suspense fallback={null}>
+          <PageOverlay
+            page={activePage}
+            onClose={() => setActivePage(null)}
+            onNavigate={setActivePage}
+          />
+        </Suspense>
       )}
     </div>
   );

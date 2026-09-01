@@ -1,9 +1,6 @@
 import { MapPin, Phone, Mail, Clock3, Navigation } from "lucide-react";
 
 function Location() {
-  const address =
-    "29QG+VFR Bakmi Pentil Nadin, Jl. Kretek Siluk, Siuk 2, Selopamioro, Kec. Imogiri, Kabupaten Bantul, Daerah Istimewa Yogyakarta 55782";
-
   const googleMapsUrl =
     "https://www.google.com/maps/search/?api=1&query=29QG%2BVFR%20Bakmi%20Pentil%20Nadin%2C%20Jl.%20Kretek%20Siluk%2C%20Siuk%202%2C%20Selopamioro%2C%20Kec.%20Imogiri%2C%20Kabupaten%20Bantul%2C%20Daerah%20Istimewa%20Yogyakarta%2055782";
 

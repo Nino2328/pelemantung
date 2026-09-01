@@ -91,8 +91,12 @@ function Navbar({ activePage, onNavigate }) {
             BRAND
         ========================================== */}
         <button
+          type="button"
           className="brand"
-          onClick={() => handleNavigate("home")}
+          onClick={(event) => {
+            event.preventDefault();
+            handleNavigate("home");
+          }}
           aria-label="Beranda Dusun Pelemantung"
         >
           <div className="brand-logo">
@@ -115,8 +119,12 @@ function Navbar({ activePage, onNavigate }) {
             return (
               <button
                 key={item.id}
+                type="button"
                 className={`nav-link ${activePage === item.id ? "active" : ""}`}
-                onClick={() => handleNavigate(item.id)}
+                onClick={(event) => {
+                  event.preventDefault();
+                  handleNavigate(item.id);
+                }}
               >
                 <Icon size={17} strokeWidth={1.8} />
 
@@ -130,8 +138,12 @@ function Navbar({ activePage, onNavigate }) {
             MOBILE MENU
         ========================================== */}
         <button
+          type="button"
           className="menu-toggle"
-          onClick={() => setMenuOpen(!menuOpen)}
+          onClick={(event) => {
+            event.preventDefault();
+            setMenuOpen(!menuOpen);
+          }}
           aria-label="Menu"
           aria-expanded={menuOpen}
         >

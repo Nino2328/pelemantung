@@ -1,0 +1,13 @@
+{
+  "total_population": 589,
+  "total_households": 208,
+  "male": 290,
+  "female": 299,
+  "rt_count": 4,
+  "rt_values": [
+    "001",
+    "002",
+    "003",
+    "004"
+  ]
+}

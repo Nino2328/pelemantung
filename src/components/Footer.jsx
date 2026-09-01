@@ -15,7 +15,11 @@ function Footer({ onNavigate }) {
       <div className="container">
         <div className="footer-main">
           <div className="footer-brand">
-            <button className="footer-logo" onClick={() => navigate("home")}>
+            <button
+              type="button"
+              className="footer-logo"
+              onClick={() => navigate("home")}
+            >
               <span>D</span>
               <span>P</span>
             </button>
@@ -33,23 +37,37 @@ function Footer({ onNavigate }) {
           <div className="footer-column">
             <h4>Navigasi</h4>
 
-            <button onClick={() => navigate("home")}>Beranda</button>
+            <button type="button" onClick={() => navigate("home")}>
+              Beranda
+            </button>
 
-            <button onClick={() => navigate("profil")}>Profil Dusun</button>
+            <button type="button" onClick={() => navigate("profil")}>
+              Profil Dusun
+            </button>
 
-            <button onClick={() => navigate("struktur")}>Struktur</button>
+            <button type="button" onClick={() => navigate("struktur")}>
+              Struktur
+            </button>
 
-            <button onClick={() => navigate("statistik")}>Statistik</button>
+            <button type="button" onClick={() => navigate("statistik")}>
+              Statistik
+            </button>
           </div>
 
           <div className="footer-column">
             <h4>Eksplorasi</h4>
 
-            <button onClick={() => navigate("potensi")}>Potensi</button>
+            <button type="button" onClick={() => navigate("potensi")}>
+              Potensi
+            </button>
 
-            <button onClick={() => navigate("galeri")}>Galeri</button>
+            <button type="button" onClick={() => navigate("galeri")}>
+              Galeri
+            </button>
 
-            <button onClick={() => navigate("kontak")}>Kontak</button>
+            <button type="button" onClick={() => navigate("kontak")}>
+              Kontak
+            </button>
           </div>
 
           <div className="footer-column footer-location">
@@ -67,6 +85,7 @@ function Footer({ onNavigate }) {
             </div>
 
             <button
+              type="button"
               onClick={() => navigate("kontak")}
               className="footer-map-link"
             >

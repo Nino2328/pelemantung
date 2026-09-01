@@ -24,45 +24,45 @@ import {
 const populationData = [
   {
     name: "Laki-laki",
-    jumlah: 620,
+    jumlah: 290,
   },
   {
     name: "Perempuan",
-    jumlah: 630,
+    jumlah: 299,
   },
 ];
 
 const ageData = [
   {
     kelompok: "0–14",
-    jumlah: 180,
+    jumlah: 113,
   },
   {
     kelompok: "15–24",
-    jumlah: 210,
+    jumlah: 78,
   },
   {
     kelompok: "25–44",
-    jumlah: 380,
+    jumlah: 157,
   },
   {
     kelompok: "45–59",
-    jumlah: 290,
+    jumlah: 120,
   },
   {
     kelompok: "60+",
-    jumlah: 190,
+    jumlah: 121,
   },
 ];
 
 const genderData = [
   {
     name: "Laki-laki",
-    value: 620,
+    value: 290,
   },
   {
     name: "Perempuan",
-    value: 630,
+    value: 299,
   },
 ];
 
@@ -70,31 +70,31 @@ const stats = [
   {
     icon: Users,
     label: "Jumlah Penduduk",
-    value: "1.250",
+    value: "589",
     unit: "Jiwa",
   },
   {
     icon: House,
     label: "Jumlah KK",
-    value: "380",
+    value: "208",
     unit: "Kepala Keluarga",
   },
   {
     icon: UserRound,
     label: "Laki-laki",
-    value: "620",
+    value: "290",
     unit: "Jiwa",
   },
   {
     icon: UserRoundCheck,
     label: "Perempuan",
-    value: "630",
+    value: "299",
     unit: "Jiwa",
   },
   {
     icon: Building2,
     label: "Jumlah RT",
-    value: "8",
+    value: "4",
     unit: "RT",
   },
   {
@@ -155,7 +155,7 @@ function Statistics() {
               </div>
 
               <div className="chart-number">
-                1.250
+                589
                 <small>Total</small>
               </div>
             </div>
