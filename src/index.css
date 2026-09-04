@@ -4328,3 +4328,144 @@ img {
     font-size: 11.5px;
   }
 }
+
+/* =========================================================
+   SIDE PANEL (Drawer separuh halaman)
+   -- ditambahkan untuk panel detail Potensi & Struktur
+   Organisasi (SidePanel.jsx)
+========================================================= */
+
+body.side-panel-lock-scroll {
+  overflow: hidden;
+}
+
+/* OVERLAY / BACKDROP */
+.side-panel-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 20, 0.45);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+  z-index: 998;
+}
+
+.side-panel-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* PANEL */
+.side-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: 50%;
+  max-width: 640px;
+  background: #ffffff;
+  box-shadow: -12px 0 40px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  z-index: 999;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-panel.is-open {
+  transform: translateX(0);
+}
+
+/* Tombol tutup */
+.side-panel-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.2s ease;
+}
+
+.side-panel-close:hover {
+  background: #eef2ef;
+}
+
+/* Gambar di atas panel */
+.side-panel-image {
+  width: 100%;
+  height: 260px;
+  overflow: hidden;
+}
+
+.side-panel-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Isi panel */
+.side-panel-body {
+  padding: 40px 48px 60px;
+}
+
+.side-panel-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: #eaf3ee;
+  color: #1f6d43;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.side-panel-title {
+  font-size: 1.6rem;
+  margin-bottom: 16px;
+}
+
+.side-panel-content {
+  color: #4b5563;
+  line-height: 1.7;
+}
+
+/* =====================================================
+   RESPONSIVE - di layar kecil, panel full width
+===================================================== */
+@media (max-width: 768px) {
+  .side-panel {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .side-panel-body {
+    padding: 32px 24px 48px;
+  }
+}
+
+/* =========================================================
+   PERSON PHOTO - EMPTY STATE
+   (dipakai saat member.image bernilai null,
+   supaya tidak muncul gambar rusak, dipakai di
+   struktur organisasi / Organization.jsx)
+========================================================= */
+
+.person-photo-empty {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  background: var(--primary-light);
+}

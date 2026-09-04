@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import {
   Crown,
   UserRound,
@@ -11,6 +13,7 @@ import {
 } from "lucide-react";
 
 import heroImage from "../assets/struktur/pemimpin.jpeg";
+import MemberDetail from "./MemberDetail";
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +35,8 @@ const members = [
     icon: Users,
     image: null,
     tags: ["Koordinasi", "Warga"],
+    detail:
+      "Tuliskan informasi lengkap mengenai Ketua RT di sini, misalnya wilayah yang dikoordinasikan, program kerja, dan cara warga dapat menghubungi.",
   },
 
   {
@@ -42,6 +47,8 @@ const members = [
     icon: HeartHandshake,
     image: null,
     tags: ["Pemberdayaan", "Keluarga"],
+    detail:
+      "Tuliskan informasi lengkap mengenai PKK di sini, misalnya program kerja, jadwal kegiatan rutin, dan struktur pengurus PKK dusun.",
   },
 
   {
@@ -52,6 +59,8 @@ const members = [
     icon: UserRound,
     image: null,
     tags: ["Posyandu", "Kesehatan"],
+    detail:
+      "Tuliskan informasi lengkap mengenai Kader di sini, misalnya jadwal posyandu, layanan kesehatan yang tersedia, dan jumlah kader aktif.",
   },
 
   {
@@ -62,6 +71,8 @@ const members = [
     icon: Sparkles,
     image: null,
     tags: ["Kepemudaan", "Kreativitas"],
+    detail:
+      "Tuliskan informasi lengkap mengenai Karang Taruna di sini, misalnya program kegiatan, jadwal pertemuan rutin, dan cara bergabung.",
   },
 ];
 
@@ -95,6 +106,8 @@ const values = [
 ];
 
 function Organization() {
+  const [activeMember, setActiveMember] = useState(null);
+
   return (
     <section id="struktur" className="section organization-section">
       <div className="container">
@@ -225,7 +238,17 @@ function Organization() {
               const Icon = member.icon;
 
               return (
-                <article className="person-card" key={member.role}>
+                <article
+                  className="person-card"
+                  key={member.role}
+                  onClick={() => setActiveMember(member)}
+                  role="button"
+                  tabIndex={0}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") setActiveMember(member);
+                  }}
+                  style={{ cursor: "pointer" }}
+                >
                   {/* NUMBER */}
 
                   <div className="person-number">0{index + 2}</div>
@@ -354,6 +377,17 @@ function Organization() {
           </div>
         </div>
       </div>
+
+      {/* =========================================================
+          HALAMAN DETAIL ANGGOTA (full-screen, konsisten dengan
+          PageOverlay.jsx)
+      ========================================================= */}
+      {activeMember && (
+        <MemberDetail
+          member={activeMember}
+          onClose={() => setActiveMember(null)}
+        />
+      )}
     </section>
   );
 }
