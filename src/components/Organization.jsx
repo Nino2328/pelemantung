@@ -2,17 +2,15 @@ import {
   Crown,
   UserRound,
   Users,
-  BriefcaseBusiness,
-  WalletCards,
+  HeartHandshake,
   Handshake,
   ShieldCheck,
-  HeartHandshake,
   ArrowUpRight,
   MapPin,
+  Sparkles,
 } from "lucide-react";
 
 import heroImage from "../assets/struktur/pemimpin.jpeg";
-
 
 /*
 |--------------------------------------------------------------------------
@@ -27,43 +25,43 @@ import heroImage from "../assets/struktur/pemimpin.jpeg";
 
 const members = [
   {
-    role: "Sekretaris",
-    name: "Nama Sekretaris",
-    description:
-      "Membantu administrasi, pencatatan kegiatan, surat-menyurat, serta pengelolaan informasi Dusun Pelemantung.",
-    icon: BriefcaseBusiness,
-    image: heroImage,
-    tags: ["Administrasi", "Dokumentasi"],
-  },
-
-  {
-    role: "Bendahara",
-    name: "Nama Bendahara",
-    description:
-      "Mengelola pencatatan, administrasi, dan pelaporan keuangan berbagai kegiatan Dusun Pelemantung.",
-    icon: WalletCards,
-    image: heroImage,
-    tags: ["Keuangan", "Pelaporan"],
-  },
-
-  {
     role: "Ketua RT",
     name: "Nama Ketua RT",
     description:
       "Mengoordinasikan kebutuhan warga serta berbagai kegiatan masyarakat pada tingkat RT.",
     icon: Users,
-    image: heroImage,
+    image: null,
     tags: ["Koordinasi", "Warga"],
   },
 
   {
-    role: "Tokoh Masyarakat",
-    name: "Nama Tokoh Masyarakat",
+    role: "PKK",
+    name: "Ketua PKK",
     description:
-      "Berperan memberikan arahan, menjaga kebersamaan, serta mendukung kegiatan sosial masyarakat.",
+      "Menggerakkan program pemberdayaan keluarga, kesejahteraan ibu dan anak, serta kegiatan sosial perempuan di Dusun Pelemantung.",
+    icon: HeartHandshake,
+    image: null,
+    tags: ["Pemberdayaan", "Keluarga"],
+  },
+
+  {
+    role: "Kader",
+    name: "Kader Dusun",
+    description:
+      "Mendukung kegiatan posyandu, kesehatan masyarakat, serta menjadi penghubung informasi antara warga dan pemerintahan dusun.",
     icon: UserRound,
-    image: heroImage,
-    tags: ["Sosial", "Masyarakat"],
+    image: null,
+    tags: ["Posyandu", "Kesehatan"],
+  },
+
+  {
+    role: "Karang Taruna",
+    name: "Ketua Karang Taruna",
+    description:
+      "Menggerakkan kegiatan kepemudaan, kreativitas, olahraga, serta partisipasi generasi muda dalam pembangunan Dusun Pelemantung.",
+    icon: Sparkles,
+    image: null,
+    tags: ["Kepemudaan", "Kreativitas"],
   },
 ];
 
@@ -235,7 +233,13 @@ function Organization() {
                   {/* PHOTO FRAME */}
 
                   <div className="person-photo">
-                    <img src={member.image} alt={member.name} />
+                    {member.image ? (
+                      <img src={member.image} alt={member.name} />
+                    ) : (
+                      <div className="person-photo-empty">
+                        <Icon size={40} strokeWidth={1.4} />
+                      </div>
+                    )}
 
                     <div className="person-photo-overlay"></div>
 
