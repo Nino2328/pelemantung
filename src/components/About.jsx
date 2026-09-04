@@ -30,7 +30,7 @@ const information = [
   {
     icon: Building2,
     label: "Desa",
-    value: "Krinjing",
+    value: "Selopamioro",
   },
   {
     icon: MapPin,

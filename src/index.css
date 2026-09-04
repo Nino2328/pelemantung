@@ -2965,6 +2965,195 @@ img {
   color: var(--primary);
   font-size: 12px;
   font-weight: 800;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.potential-content button:hover {
+  color: var(--primary-dark);
+}
+
+/* ========================================
+   POTENTIAL MODAL
+======================================== */
+
+.potential-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(31, 81, 60, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 900;
+  animation: modalFadeIn 0.3s ease;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.potential-modal {
+  position: relative;
+  background: white;
+  border-radius: 24px;
+  max-height: 90vh;
+  overflow-y: auto;
+  max-width: 650px;
+  width: 100%;
+  box-shadow: var(--shadow-lg);
+  animation: modalSlideUp 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.potential-modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.potential-modal-close:hover {
+  background: white;
+  box-shadow: var(--shadow);
+  transform: scale(1.1);
+  color: var(--primary-dark);
+}
+
+.potential-modal-image {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
+}
+
+.potential-modal-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.potential-modal-content {
+  padding: 40px 30px;
+}
+
+.potential-modal-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.potential-modal-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--primary-light);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.potential-modal-header h2 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0;
+}
+
+.potential-modal-section {
+  margin-bottom: 28px;
+}
+
+.potential-modal-section h3 {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  margin: 0 0 12px 0;
+}
+
+.potential-modal-section p {
+  font-size: 14px;
+  line-height: 1.75;
+  color: var(--text-soft);
+  margin: 0;
+}
+
+.potential-modal-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.potential-modal-list li {
+  display: flex;
+  gap: 12px;
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-soft);
+}
+
+.potential-modal-list .bullet {
+  color: var(--primary);
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.potential-modal-action {
+  width: 100%;
+  padding: 13px 20px;
+  margin-top: 10px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 14px;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.potential-modal-action:hover {
+  background: var(--primary-dark);
+  box-shadow: var(--shadow);
+  transform: translateY(-2px);
 }
 
 /* ========================================
@@ -3921,6 +4110,29 @@ img {
     grid-template-columns: 1fr;
   }
 
+  .potential-modal {
+    max-width: 95vw;
+    max-height: 85vh;
+  }
+
+  .potential-modal-content {
+    padding: 30px 20px;
+  }
+
+  .potential-modal-header {
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 25px;
+  }
+
+  .potential-modal-header h2 {
+    font-size: 22px;
+  }
+
+  .potential-modal-section {
+    margin-bottom: 20px;
+  }
+
   .gallery-grid {
     grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: 170px;
@@ -4057,6 +4269,50 @@ img {
 
   .lightbox {
     padding: 20px;
+  }
+
+  .potential-modal-overlay {
+    padding: 15px;
+  }
+
+  .potential-modal {
+    max-height: 90vh;
+  }
+
+  .potential-modal-close {
+    width: 40px;
+    height: 40px;
+  }
+
+  .potential-modal-image {
+    height: 200px;
+  }
+
+  .potential-modal-content {
+    padding: 25px 18px;
+  }
+
+  .potential-modal-header h2 {
+    font-size: 20px;
+  }
+
+  .potential-modal-section h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .potential-modal-section p {
+    font-size: 13px;
+  }
+
+  .potential-modal-list li {
+    font-size: 13px;
+    gap: 10px;
+  }
+
+  .potential-modal-action {
+    padding: 12px 18px;
+    font-size: 13px;
   }
 
   .page-overlay-intro h1 {
